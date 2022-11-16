@@ -1,0 +1,29 @@
+body {
+    margin: 20px;
+    background-color: black;
+    color: whitesmoke
+}
+
+footer {
+    background-color: darkgrey;
+    font-size: 20px;
+    color: white;
+}
+
+test {
+    background-color: gold;
+}
+
+table, th, td {
+    margin:5px;
+    width: 50%;
+    height: 20px;
+    max-height: 20px;
+    border: 1px solid darkgray;
+    
+}
+
+a {
+    color: palevioletred;
+}
+
