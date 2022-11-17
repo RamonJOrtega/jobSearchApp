@@ -7,8 +7,10 @@ import {
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const app = express();
-const axios = require('axios');
 const { name } = require('ejs');
+const { axiosGet } = require('./helpers/axiosHelpers')
+const {companyFrequency, listCompanies } = require('./helpers/utils.js')
+
 app.use(express.static(__dirname + '/public/css'));
 app.use(expressLayouts);
 app.set('layout', './layouts/full-width');
@@ -17,18 +19,6 @@ app.set('view engine', 'ejs');
 const port = 8001;
 const jobURL = 'https://4dayweek.io/api';
 
-const axiosGet = async (url) => {
-    console.log('The URL call is \n', url);
-    try {
-        const response = await axios.get(url);
-        return response.data;
-    }
-        catch (err) { 
-            console.log("Axios Error: " + err);     
-        }
-}
-
-// GET route for profile page
 app.get('/', async (request, response) => {
     const apiJobResp = await axiosGet(jobURL);
     verboseCompanyArray = sort.listCompanies(apiJobResp.jobs);
