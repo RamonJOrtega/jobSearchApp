@@ -9,6 +9,7 @@ app.set('layout', './layouts/full-width');
 app.set('view engine', 'ejs');
 
 const port = 8001;
+const jobURL = 'https://4dayweek.io/api';
 
 const axiosGet = async (url) => {
     console.log('The URL call is \n', url);
@@ -41,32 +42,61 @@ const companyFrequency = (jobArray) => {
         }
     };
     const freqArray = Object.entries(counter);
-    sortedFreqArray = freqArray.sort((a,b) => b[1]-a[1]);
-    return sortedFreqArray;
+    return freqArray;
+}
+const sortFreqLargeToSmall = (freqArray) => {
+    return freqArray.sort((a,b) => b[1]-a[1]);
 }
 
+const findCompanyJobs = (company, jobObject) => {
+    let jobArray = [];
+    for (let i=0; i < jobObject.length; i++) {
+        if (company == jobObject[i].company_name) {
+        jobArray.push([
+            jobObject[i].title, 
+            jobObject[i].company.country,
+            jobObject[i].company.remote_level,
+            jobObject[i].company.logo_url,
+            jobObject[i].url
+        ]);
+        } 
+    }
+    console.log(jobArray);
+    return jobArray;
+}
+
+
+
+// GET route for profile page
 app.get('/', async (request, response) => {
-    const jobURL = 'https://4dayweek.io/api';
     const apiJobResp = await axiosGet(jobURL);
-    verboseCompanyArray = listCompanies(apiJobResp.jobs)
-    uniqueCompanyArray = [... new Set(verboseCompanyArray)]
-    response.render('jobs', {
+    verboseCompanyArray = listCompanies(apiJobResp.jobs);
+    uniqueCompanyArray = [... new Set(verboseCompanyArray)];
+    sortedUniqueCompanyArray = sortFreqLargeToSmall(companyFrequency(verboseCompanyArray));
+    response.render('jobsHome', {
         title: '4-Day Work Week Careers',
         jobCount: apiJobResp.jobs.length,
         companyCount: uniqueCompanyArray.length,
-        companyFreq: companyFrequency(verboseCompanyArray)
+        companyFreq: sortedUniqueCompanyArray,
      });
     });    
 
-app.get('/number/:int', async (request, response) => {
-    
-    response.render('number', {
-    title: 'placeholder'
-
+app.get('/company/:company', async (request, response) => {
+    const apiJobResp = await axiosGet(jobURL);
+    verboseCompanyArray = listCompanies(apiJobResp.jobs);
+    uniqueCompanyArray = [... new Set(verboseCompanyArray)];
+    company = (request.params.company);
+    jobsArray = findCompanyJobs(company,apiJobResp.jobs);
+    //locationsArray = findJobLocations
+   
+    response.render('company', {
+        title: company,
+        jobs: jobsArray,
+        //locations: locationsArray
     });
 
 });
 
 app.listen(port, () => {
-    console.log(`listening to the smooth sounds of port ${port}`);
+    console.log(`confidently listening to port ${port}`);
 });
