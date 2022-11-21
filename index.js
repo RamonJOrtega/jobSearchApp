@@ -1,3 +1,9 @@
+import {
+    listCompanies,
+    companyFrequency,
+    sortFreqLargeToSmall,
+    findCompanyJobs
+} from '.sortingFunctions.js';
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const app = express();
@@ -22,57 +28,12 @@ const axiosGet = async (url) => {
         }
 }
 
-const listCompanies = (array) => {
-    companyArray=[];
-    for (let i = 0; i < array.length; i++) {
-        companyArray[i] = array[i].company_name;
-    }
-    // to make unique
-    //companyArray = [... new Set(companyArray)]
-    return companyArray;
-}
- 
-const companyFrequency = (jobArray) => {
-    let counter = {};
-    for (element of jobArray) {
-        if (counter[element]) {
-            counter[element] += 1;
-        } else {
-            counter[element] = 1;
-        }
-    };
-    const freqArray = Object.entries(counter);
-    return freqArray;
-}
-const sortFreqLargeToSmall = (freqArray) => {
-    return freqArray.sort((a,b) => b[1]-a[1]);
-}
-
-const findCompanyJobs = (company, jobObject) => {
-    let jobArray = [];
-    for (let i=0; i < jobObject.length; i++) {
-        if (company == jobObject[i].company_name) {
-        jobArray.push([
-            jobObject[i].title, 
-            jobObject[i].company.country,
-            jobObject[i].company.remote_level,
-            jobObject[i].company.logo_url,
-            jobObject[i].url
-        ]);
-        } 
-    }
-    console.log(jobArray);
-    return jobArray;
-}
-
-
-
 // GET route for profile page
 app.get('/', async (request, response) => {
     const apiJobResp = await axiosGet(jobURL);
-    verboseCompanyArray = listCompanies(apiJobResp.jobs);
+    verboseCompanyArray = sort.listCompanies(apiJobResp.jobs);
     uniqueCompanyArray = [... new Set(verboseCompanyArray)];
-    sortedUniqueCompanyArray = sortFreqLargeToSmall(companyFrequency(verboseCompanyArray));
+    sortedUniqueCompanyArray = sort.sortFreqLargeToSmall(sort.companyFrequency(verboseCompanyArray));
     response.render('jobsHome', {
         title: '4-Day Work Week Careers',
         jobCount: apiJobResp.jobs.length,
@@ -83,10 +44,10 @@ app.get('/', async (request, response) => {
 
 app.get('/company/:company', async (request, response) => {
     const apiJobResp = await axiosGet(jobURL);
-    verboseCompanyArray = listCompanies(apiJobResp.jobs);
+    verboseCompanyArray = sort.listCompanies(apiJobResp.jobs);
     uniqueCompanyArray = [... new Set(verboseCompanyArray)];
     company = (request.params.company);
-    jobsArray = findCompanyJobs(company,apiJobResp.jobs);
+    jobsArray = sort.findCompanyJobs(company,apiJobResp.jobs);
     //locationsArray = findJobLocations
    
     response.render('company', {
