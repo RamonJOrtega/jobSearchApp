@@ -1,4 +1,4 @@
-const listCompanies = (array) => {
+export const listCompanies = (array) => {
     companyArray=[];
     for (let i = 0; i < array.length; i++) {
         companyArray[i] = array[i].company_name;
@@ -8,7 +8,7 @@ const listCompanies = (array) => {
     return companyArray;
 }
  
-const companyFrequency = (jobArray) => {
+export const companyFrequency = (jobArray) => {
     let counter = {};
     for (element of jobArray) {
         if (counter[element]) {
@@ -20,11 +20,12 @@ const companyFrequency = (jobArray) => {
     const freqArray = Object.entries(counter);
     return freqArray;
 }
-const sortFreqLargeToSmall = (freqArray) => {
+
+export const sortFreqLargeToSmall = (freqArray) => {
     return freqArray.sort((a,b) => b[1]-a[1]);
 }
 
-const findCompanyJobs = (company, jobObject) => {
+export const findCompanyJobs = (company, jobObject) => {
     let jobArray = [];
     for (let i=0; i < jobObject.length; i++) {
         if (company == jobObject[i].company_name) {
@@ -40,12 +41,3 @@ const findCompanyJobs = (company, jobObject) => {
     console.log(jobArray);
     return jobArray;
 }
-
-export default {
-    listCompanies,
-    companyFrequency,
-    sortFreqLargeToSmall,
-    findCompanyJobs
-}
-
-
