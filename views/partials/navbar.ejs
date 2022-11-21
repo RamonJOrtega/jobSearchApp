@@ -2,16 +2,21 @@
     <link rel="stylesheet" href="../../navbar.css">
 </head>
 <div class="topnav">
-    <a class="active" href="/">Home</a>
+    <div>Navigate to Company Number</div>
+    <a class="active" href="/">Home</a>  
 
     <!-- <a href="/number/10">10</a>
+    <a href="/jobs"> US Based Jobs</a>
     <a href="/number/100">100</a> -->
-   
+    
+    
     <main class="topnav">
-      
+    
     </main>
-
-    <a href="/jobs"> see jobs </a>
+    <% for( let index = 0; index < sortedUniqueCompanyArray.length; index++ ) { %>
+        <a href="/company/<%- sortedUniqueCompanyArray[index][0] %> "> 
+            <%- index + 1 %> </a>
+    <% } %>
     
 
 </div>
