@@ -1,17 +1,16 @@
 import {
-    listCompanies,
     companyFrequency,
+    listCompanies,
     sortFreqLargeToSmall,
     findCompanyJobs
-} from '.sortingFunctions.js';
-const express = require('express');
-const expressLayouts = require('express-ejs-layouts');
-const app = express();
-const { name } = require('ejs');
-const { axiosGet } = require('./helpers/axiosHelpers')
-const {companyFrequency, listCompanies } = require('./helpers/utils.js')
+} from './helpers/sortingFunctions.js';
+import express from 'express'
+import expressLayouts from 'express-ejs-layouts'
+import { axiosGet } from './helpers/axiosHelpers.js'
 
-app.use(express.static(__dirname + '/public/css'));
+const app = express();
+
+app.use(express.static('./public/css'));
 app.use(expressLayouts);
 app.set('layout', './layouts/full-width');
 app.set('view engine', 'ejs');

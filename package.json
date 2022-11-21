@@ -1,6 +1,6 @@
 {
   "name": "express-intro",
-  "type": "commonjs",
+  "type": "module",
   "version": "1.0.0",
   "description": "\"an intro app for express\"",
   "main": "index.js",
