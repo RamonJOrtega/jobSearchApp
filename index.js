@@ -1,6 +1,6 @@
 import {
-    companyFrequency,
     listCompanies,
+    companyFrequency,
     sortFreqLargeToSmall,
     findCompanyJobs
 } from './helpers/sortingFunctions.js';
