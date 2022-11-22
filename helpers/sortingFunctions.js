@@ -1,5 +1,5 @@
 export const listCompanies = (array) => {
-    companyArray=[];
+    let companyArray=[];
     for (let i = 0; i < array.length; i++) {
         companyArray[i] = array[i].company_name;
     }
@@ -10,7 +10,7 @@ export const listCompanies = (array) => {
  
 export const companyFrequency = (jobArray) => {
     let counter = {};
-    for (element of jobArray) {
+    for (const element of jobArray) {
         if (counter[element]) {
             counter[element] += 1;
         } else {

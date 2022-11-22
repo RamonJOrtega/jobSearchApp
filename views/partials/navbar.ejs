@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" href="../../navbar.css">
+    <link rel="stylesheet" href="../../public/ccs/navbar.css">
 </head>
 <div class="topnav">
     <div>Navigate to Company Number</div>
@@ -13,8 +13,8 @@
     <main class="topnav">
     
     </main>
-    <% for( let index = 0; index < sortedUniqueCompanyArray.length; index++ ) { %>
-        <a href="/company/<%- sortedUniqueCompanyArray[index][0] %> "> 
+    <% for( let index = 0; index < companyFreq.length; index++ ) { %>
+        <a href="/company/<%- companyFreq[index][0] %> "> 
             <%- index + 1 %> </a>
     <% } %>
     
