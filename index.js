@@ -22,6 +22,7 @@ app.get('/', async (request, response) => {
     const verboseCompanyArray = listCompanies(apiJobResp.jobs);
     const uniqueCompanyArray = [... new Set(verboseCompanyArray)];
     const sortedUniqueCompanyArray = sortFreqLargeToSmall(companyFrequency(verboseCompanyArray));
+    
     response.render('jobsHome', {
         title: '4-Day Work Week Careers',
         jobCount: apiJobResp.jobs.length,
@@ -34,17 +35,31 @@ app.get('/company/:company', async (request, response) => {
     const apiJobResp = await axiosGet(jobURL);
     const verboseCompanyArray = listCompanies(apiJobResp.jobs);
     const uniqueCompanyArray = [... new Set(verboseCompanyArray)];
+    const sortedUniqueCompanyArray = sortFreqLargeToSmall(companyFrequency(verboseCompanyArray));
     const company = (request.params.company);
     const jobsArray = findCompanyJobs(company,apiJobResp.jobs);
-    //locationsArray = findJobLocations
    
     response.render('company', {
         title: company,
         jobs: jobsArray,
-        //locations: locationsArray
+        companyFreq: sortedUniqueCompanyArray
     });
-
 }); 
+
+
+
+
+// app.use(express.urlencoded({
+//     extended: true
+// }));
+
+// app.post('/company/submit-form', (req, res) => {
+//     const username = req.body.companyName
+//     //...
+//     res.end()
+//   })
+
+
 
 app.listen(port, () => {
     console.log(`confidently listening to port ${port}`);
