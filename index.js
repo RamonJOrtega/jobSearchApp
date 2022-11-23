@@ -12,7 +12,7 @@ import { sendData } from './helpers/searchBox.js';
 
 
 const app = express();
-app.use(express.static('./public/css'));
+app.use(express.static('./public'));
 app.use(expressLayouts);
 app.set('layout', './layouts/full-width');
 app.set('view engine', 'ejs');
