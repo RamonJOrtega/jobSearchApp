@@ -1,22 +1,28 @@
-<head>
-    <link rel="stylesheet" href="../../public/ccs/navbar.css">
-</head>
-<div class="topnav">
-    <div>Navigate to Company Number</div>
-    <a class="active" href="/">Home</a>  
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../public/ccs/navbar.css">
+    </head>
+    <body>
+        <div class="topnav">
+            <a class="active" href="/">Home</a>  
+            <!-- <a href="/number/10">10</a> <a href="/jobs"> US Based Jobs</a> <a href="/number/100">100</a> -->
+            <main class="topnav"> 
+                <input type="search" id="search" name="search" placeholder="company name" onkeyup="myFunction()">
+        
+                <script>
+                    function myFunction() {
+                      console.log("hello");
+                    }
+                    </script>
+                <!-- < % for( let index = 0; index < companyFreq.length; index++ ) { %>
+                    <a href="/company/< %- companyFreq[index][0] %> "> 
+                        < %- index + 1 %> </a>
+                < % } %> -->
+        
+                <!-- uncomment the above and remove the space between < and % to make active again -->
+            </main> 
+        </div>
+    </body>
+</html>
 
-    <!-- <a href="/number/10">10</a>
-    <a href="/jobs"> US Based Jobs</a>
-    <a href="/number/100">100</a> -->
-    
-    
-    <main class="topnav">
-    
-    </main>
-    <% for( let index = 0; index < companyFreq.length; index++ ) { %>
-        <a href="/company/<%- companyFreq[index][0] %> "> 
-            <%- index + 1 %> </a>
-    <% } %>
-    
-
-</div>
