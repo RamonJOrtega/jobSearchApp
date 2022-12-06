@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../../public/ccs/navbar.css">
+        <link rel="stylesheet" type="text/css" href="public/css/navbar.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="/css/instant-search.css">
     </head>
     <body>
         <div class="topnav">
-            <a class="active" href="/">Home</a>  
-            <!-- <a href="/number/10">10</a> <a href="/jobs"> US Based Jobs</a> <a href="/number/100">100</a> -->
+            
+            <a class="active" href="/">Home</a> 
+
             <main class="topnav"> 
-                <input type="search" id="search" name="search" placeholder="company name" onkeyup="myFunction()">
-        
-                <script src="clickIt.js"></script>
-                <!-- < % for( let index = 0; index < companyFreq.length; index++ ) { %>
-                    <a href="/company/< %- companyFreq[index][0] %> "> 
-                        < %- index + 1 %> </a>
-                < % } %> -->
-        
-                <!-- uncomment the above and remove the space between < and % to make active again -->
+                <div class="flex-container-column">
+                    <input list="results" id="srch" placeholder="search company name"
+                    onkeypress="suggest(getElementById('srch').value.toString().toLowerCase(), event)"
+                 
+                    >
+                    <datalist id="results" >
+                        <option id="res0" name="res0" placeholder="result0" ></option>
+                        <option id="res1" name="res1" placeholder="result1" ></option>                
+                        <option id="res2" name="res2" placeholder="result2" ></option>            
+                        <option id="res3" name="res3" placeholder="result3" ></option>
+                    </datalist>
+                </div>
+
             </main> 
         </div>
     </body>
