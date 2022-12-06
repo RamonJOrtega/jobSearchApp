@@ -15,6 +15,14 @@
     font-size: 17px;
     border-radius: 5px;
   }
+
+    /* Add a color to the active/current link */
+    .topnav a.active {
+      padding: 15px;
+      background-color: #04AA6D;
+      color: white;
+    }
+  
   
   /* Change the color of links on hover */
   .topnav a:hover {
@@ -22,20 +30,19 @@
     color: black;
   }
   
-  /* Add a color to the active/current link */
-  .topnav a.active {
-    padding: 20px;
-    background-color: #04AA6D;
-    color: white;
+
+  .flex-container-column {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin-left: 10px;
   }
 
   input {
-    margin: 20px;
-    border-radius:5px;
-    background-color: #333;
-    color: palevioletred;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 17px;
 }
 
-form {
-  padding: 10px;
-}
+
+
