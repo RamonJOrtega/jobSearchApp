@@ -2,13 +2,13 @@ import {
     listCompanies,
     companyFrequency,
     sortFreqLargeToSmall,
-    findCompanyJobs
+    findCompanyJobs,
 } from './helpers/sortingFunctions.js';
 import express from 'express';
 import expressLayouts from 'express-ejs-layouts';
 import { axiosGet } from './helpers/axiosHelpers.js';
 import { body, validationResult } from "express-validator";
-import { sendData } from './helpers/searchBox.js';
+//import { suggestCompany } from './helpers/searchBox.js';
 
 
 const app = express();
@@ -31,8 +31,8 @@ app.get('/', async (request, response) => {
         title: '4-Day Work Week Careers',
         jobCount: apiJobResp.jobs.length,
         companyCount: uniqueCompanyArray.length,
-        companyFreq: sortedUniqueCompanyArray,
-     });
+        companyFreq: sortedUniqueCompanyArray
+        });
     });    
 
 app.get('/company/:company', async (request, response) => {
@@ -50,20 +50,4 @@ app.get('/company/:company', async (request, response) => {
     });
 }); 
 
-
-
-// app.use(express.urlencoded({
-//     extended: true
-// }));
-
-// app.post('/company/submit-form', (req, res) => {
-//     const username = req.body.companyName
-//     //...
-//     res.end()
-//   })
-
-
-
-app.listen(port, () => {
-    console.log(`confidently listening to port ${port}`);
-});
+app.listen(port, () => {console.log(`confidently listening to port ${port}`)});
