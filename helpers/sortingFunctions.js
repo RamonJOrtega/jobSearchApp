@@ -1,21 +1,20 @@
+export const getFirstColFrmTwoColArray = (twoColArray) => {
+    let oneColArray = [];
+    for (let i = 0 ; i < twoColArray.length; i++) {oneColArray[i] = twoColArray[i][0]}
+    return oneColArray;
+}
+
 export const listCompanies = (array) => {
     let companyArray=[];
-    for (let i = 0; i < array.length; i++) {
-        companyArray[i] = array[i].company_name;
-    }
-    // to make unique
-    //companyArray = [... new Set(companyArray)]
+    for (let i = 0; i < array.length; i++) {companyArray[i] = array[i].company_name}
     return companyArray;
 }
  
 export const companyFrequency = (jobArray) => {
     let counter = {};
     for (const element of jobArray) {
-        if (counter[element]) {
-            counter[element] += 1;
-        } else {
-            counter[element] = 1;
-        }
+        if (counter[element]) {counter[element] += 1;} 
+        else {counter[element] = 1;}
     };
     const freqArray = Object.entries(counter);
     return freqArray;
