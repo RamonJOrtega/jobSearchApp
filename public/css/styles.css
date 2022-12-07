@@ -12,7 +12,11 @@ footer {
     background-color: #333;
     font-size: 20px;
     color: white;
+    display: flex;
+    justify-content: space-between;
+    
 }
+
 
 test {
     background-color: gold;
