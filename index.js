@@ -1,4 +1,5 @@
 import {
+    getFirstColFrmTwoColArray,
     listCompanies,
     companyFrequency,
     sortFreqLargeToSmall,
@@ -7,9 +8,6 @@ import {
 import express from 'express';
 import expressLayouts from 'express-ejs-layouts';
 import { axiosGet } from './helpers/axiosHelpers.js';
-import { body, validationResult } from "express-validator";
-//import { suggestCompany } from './helpers/searchBox.js';
-
 
 const app = express();
 app.use(express.static('./public'));
@@ -20,18 +18,19 @@ app.set('view engine', 'ejs');
 const port = 8001;
 const jobURL = 'https://4dayweek.io/api';
 
-
 app.get('/', async (request, response) => {
     const apiJobResp = await axiosGet(jobURL);
     const verboseCompanyArray = listCompanies(apiJobResp.jobs);
     const uniqueCompanyArray = [... new Set(verboseCompanyArray)];
     const sortedUniqueCompanyArray = sortFreqLargeToSmall(companyFrequency(verboseCompanyArray));
+    const companyList = getFirstColFrmTwoColArray(sortedUniqueCompanyArray);
     
     response.render('jobsHome', {
         title: '4-Day Work Week Careers',
         jobCount: apiJobResp.jobs.length,
         companyCount: uniqueCompanyArray.length,
-        companyFreq: sortedUniqueCompanyArray
+        companyFreq: sortedUniqueCompanyArray,
+        companyList: companyList
         });
     });    
 
@@ -40,13 +39,15 @@ app.get('/company/:company', async (request, response) => {
     const verboseCompanyArray = listCompanies(apiJobResp.jobs);
     const uniqueCompanyArray = [... new Set(verboseCompanyArray)];
     const sortedUniqueCompanyArray = sortFreqLargeToSmall(companyFrequency(verboseCompanyArray));
+    const companyList = getFirstColFrmTwoColArray(sortedUniqueCompanyArray);
     const company = (request.params.company);
     const jobsArray = findCompanyJobs(company,apiJobResp.jobs);
    
     response.render('company', {
         title: company,
         jobs: jobsArray,
-        companyFreq: sortedUniqueCompanyArray
+        companyFreq: sortedUniqueCompanyArray,
+        companyList: companyList
     });
 }); 
 
