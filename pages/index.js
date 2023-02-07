@@ -4,17 +4,16 @@ import {
     companyFrequency,
     sortFreqLargeToSmall,
     findCompanyJobs,
-} from '..sortingFunctions';
+} from './helpers/sortingFunctions.js';
 import express from 'express';
 import expressLayouts from 'express-ejs-layouts';
-import { axiosGet } from '..axiosHelpers';
+import { axiosGet } from './helpers/axiosHelpers.js';
 
 const app = express();
 app.use(express.static('./public'));
 app.use(expressLayouts);
 app.set('layout', './layouts/full-width');
 app.set('view engine', 'ejs');
-console.log("Lets build a something")
 
 const port = 8001;
 const jobURL = 'https://4dayweek.io/api';
