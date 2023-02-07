@@ -4,10 +4,10 @@ import {
     companyFrequency,
     sortFreqLargeToSmall,
     findCompanyJobs,
-} from '../helpers/sortingFunctions.js';
+} from '..sortingFunctions';
 import express from 'express';
 import expressLayouts from 'express-ejs-layouts';
-import { axiosGet } from '../helpers/axiosHelpers.js';
+import { axiosGet } from '..axiosHelpers';
 
 const app = express();
 app.use(express.static('./public'));
