@@ -23,7 +23,6 @@
     "react-dom": "^18.2.0"
   },
   "keywords": [],
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ramon6767/jobSearchApp.git"
@@ -31,5 +30,11 @@
   "bugs": {
     "url": "https://github.com/ramon6767/jobSearchApp/issues"
   },
-  "homepage": "https://github.com/ramon6767/jobSearchApp#readme"
+  "homepage": "https://github.com/ramon6767/jobSearchApp#readme",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  }
 }
