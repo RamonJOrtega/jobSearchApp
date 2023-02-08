@@ -10,7 +10,7 @@ import API from './api/app.js';
 
     const port = 3001;
 
-    index.use("/api/app", API);
+    index.use("/", API);
 
     index.listen(port, () => {console.log(`confidently listening to port ${port}`)});
 
