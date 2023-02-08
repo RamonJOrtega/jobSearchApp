@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "find the top tier jobs you always dreamed of",
   "main": "index.js",
+  "engines": {
+    "node": "18x"
+  },
   "type": "module",
   "scripts": {
     "start": "node index.js"
