@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/ramon6767/jobSearchApp#readme",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "browser": {
     "fs": false
