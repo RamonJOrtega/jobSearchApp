@@ -14,11 +14,8 @@
     "express-ejs-layouts": "^2.5.1",
     "express-validator": "^6.14.2",
     "fs": "^0.0.1-security",
-    "next": "^13.1.6",
     "nodemon": "^2.0.20",
-    "pg": "^8.8.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "pg": "^8.8.0"
   },
   "keywords": [],
   "repository": {
@@ -30,10 +27,7 @@
   },
   "homepage": "https://github.com/ramon6767/jobSearchApp#readme",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "node index.js"
   },
   "browser": {
     "fs": false
