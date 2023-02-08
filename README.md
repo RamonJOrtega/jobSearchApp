@@ -18,4 +18,4 @@ Home Page Instant Search Box Shown Below
 ![alt text](https://github.com/RamonJOrtega/jobSearchApp/blob/main/appHome.png)
 
 Company Result Page ShownBelow
-![alt text](https://github.com/RamonJOrtega/jobSearchApp/blob/main/appHome3.pn
+![alt text](https://github.com/RamonJOrtega/jobSearchApp/blob/main/appHome.png)
