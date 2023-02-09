@@ -1,17 +1,19 @@
-import {
+const {
     getFirstColFrmTwoColArray,
     listCompanies,
     companyFrequency,
     sortFreqLargeToSmall,
     findCompanyJobs,
-} from './helpers/sortingFunctions.js';
-import express from 'express';
-import expressLayouts from 'express-ejs-layouts';
-import { axiosGet } from './helpers/axiosHelpers.js';
+} = require('./helpers/sortingFunctions.js');
+const { axiosGet } = require('./helpers/axiosHelpers.js');
+
+const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
 
 const app = express();
 app.use(express.static('./public'));
 app.use(expressLayouts);
+
 app.set('layout', './layouts/full-width');
 app.set('view engine', 'ejs');
 

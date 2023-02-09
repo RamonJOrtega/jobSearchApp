@@ -1,6 +1,6 @@
-import axios from 'axios'
+const axios = require('axios')
 
-export const axiosGet = async (url) => {
+const axiosGet = async (url) => {
     console.log('The URL call is \n', url);
     try {
         const response = await axios.get(url);
@@ -10,3 +10,5 @@ export const axiosGet = async (url) => {
             console.log("Axios Error: " + err);     
         }
 }
+
+module.exports = { axiosGet };

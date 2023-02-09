@@ -1,16 +1,16 @@
-export const getFirstColFrmTwoColArray = (twoColArray) => {
+ const getFirstColFrmTwoColArray = (twoColArray) => {
     let oneColArray = [];
     for (let i = 0 ; i < twoColArray.length; i++) {oneColArray[i] = twoColArray[i][0]}
     return oneColArray;
 }
 
-export const listCompanies = (array) => {
+ const listCompanies = (array) => {
     let companyArray=[];
     for (let i = 0; i < array.length; i++) {companyArray[i] = array[i].company_name}
     return companyArray;
 }
  
-export const companyFrequency = (jobArray) => {
+ const companyFrequency = (jobArray) => {
     let counter = {};
     for (const element of jobArray) {
         if (counter[element]) {counter[element] += 1;} 
@@ -20,11 +20,11 @@ export const companyFrequency = (jobArray) => {
     return freqArray;
 }
 
-export const sortFreqLargeToSmall = (freqArray) => {
+ const sortFreqLargeToSmall = (freqArray) => {
     return freqArray.sort((a,b) => b[1]-a[1]);
 }
 
-export const findCompanyJobs = (company, jobObject) => {
+ const findCompanyJobs = (company, jobObject) => {
     let jobArray = [];
     for (let i=0; i < jobObject.length; i++) {
         if (company == jobObject[i].company_name) {
@@ -40,3 +40,11 @@ export const findCompanyJobs = (company, jobObject) => {
     console.log(jobArray);
     return jobArray;
 }
+
+module.exports = {
+    getFirstColFrmTwoColArray,
+    listCompanies,
+    companyFrequency,
+    sortFreqLargeToSmall,
+    findCompanyJobs,
+};
