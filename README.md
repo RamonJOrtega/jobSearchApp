@@ -13,7 +13,6 @@ To run.
 
 Home Page Shown Below
 
-
 ![alt text](https://github.com/RamonJOrtega/jobSearchApp/blob/main/public/img/appHome1.png)
 
 Home Page Instant Search Box Shown Below
