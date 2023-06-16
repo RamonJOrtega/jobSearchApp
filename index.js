@@ -29,14 +29,15 @@ app.get('/', async (request, response) => {
     const sortedUniqueCompanyArray = sortFreqLargeToSmall(companyFrequency(verboseCompanyArray));
     const companyList = getFirstColFrmTwoColArray(sortedUniqueCompanyArray);
     
-    response.render('jobsHome', {
+    response.send('jobsHome', {
         title: '4-Day Work Week Careers',
         jobCount: apiJobResp.jobs.length,
         companyCount: uniqueCompanyArray.length,
         companyFreq: sortedUniqueCompanyArray,
         companyList: companyList
-        });
-    });    
+    });
+    
+});    
 
 app.get('/company/:company', async (request, response) => {
     const apiJobResp = await axiosGet(jobURL);
