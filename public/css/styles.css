@@ -1,7 +1,12 @@
 body {
     margin: 20px;
-    background-color: black;
+    background-image: linear-gradient(black, #333, black);
     color: whitesmoke;
+}
+
+.centerContent {
+    max-width: 1440px;
+    margin: auto;
 }
 
 image {
@@ -13,8 +18,7 @@ footer {
     font-size: 20px;
     color: white;
     display: flex;
-    justify-content: space-between;
-    
+    justify-content: space-between;   
 }
 
 
@@ -23,8 +27,10 @@ test {
 }
 
 table, th, td {
+    table-layout: fixed;
     margin:5px;
-    width: 50%;
+    width: 100%;
+    margin: auto;
     height: 20px;
     max-height: 20px;
     border: 1px solid darkgray;
