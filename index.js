@@ -35,38 +35,7 @@ app.get('/', async (request, response) => {
         companyCount: uniqueCompanyArray.length,
         companyFreq: sortedUniqueCompanyArray,
         companyList: companyList
-    }, (err, renderedHtml) => {
-        if (err) {
-          console.error(`Error rendering EJS file: ${err}`);
-          response.status(500).send('Internal Server Error');
-          return;
-        }
-    
-        // Write the rendered HTML to a temporary file
-        const tempHtmlFilePath = 'temp.html';
-        fs.writeFile(tempHtmlFilePath, renderedHtml, 'utf8', (err) => {
-          if (err) {
-            console.error(`Error writing temporary HTML file: ${err}`);
-            response.status(500).send('Internal Server Error');
-            return;
-          }
-    
-          // Send the temporary HTML file as the response
-          response.sendFile(tempHtmlFilePath, (err) => {
-            if (err) {
-              console.error(`Error sending HTML file: ${err}`);
-              response.status(500).send('Internal Server Error');
-            }
-    
-            // Delete the temporary HTML file after sending
-            fs.unlink(tempHtmlFilePath, (err) => {
-              if (err) {
-                console.error(`Error deleting temporary HTML file: ${err}`);
-              }
-            });
-          });
-        });
-      })
+    });
     
 });    
 
