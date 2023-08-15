@@ -33,7 +33,7 @@ table, th, td {
     margin: auto;
     height: 20px;
     max-height: 20px;
-    border: 1px solid rgb(233, 233, 233);
+    border: 1px solid #87a79c;
     border-collapse: collapse;
     text-align: center;
 }
