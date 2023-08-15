@@ -21,11 +21,6 @@ footer {
     justify-content: space-between;   
 }
 
-
-test {
-    background-color: gold;
-}
-
 table, th, td {
     table-layout: fixed;
     margin:5px;
@@ -36,6 +31,7 @@ table, th, td {
     border-bottom: 1px solid #87a79c;
     border-collapse: collapse;
     text-align: center;
+    margin-bottom: 1em;
 }
 
 caption {
@@ -68,10 +64,14 @@ td > a, h2 > span {
     float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 1px 3px;
+    padding: 15px;
     text-decoration: none;
     font-size: 17px;
     border-radius: 5px;
     background-color: #04AA6D;
   }
 
+  footer > div {
+    padding: 15px;
+    text-align: center;
+  }
