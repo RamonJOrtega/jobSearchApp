@@ -2,14 +2,13 @@
     <section>
         <h1> <%- title %> </h1>
         <h2> Open Positions: <span> <%- jobCount %></span> </h2>
-        <h2> Companies Hiring: <span><%- companyCount %> </span><br></h2>
+        <h2> Companies Hiring: <span><%- companyCount %> </span></h2>
         <table>
-            <caption>            Table of Openings per Company Sorted Most to Least:
-            </caption>
+            <caption>Table of Openings per Company Sorted Most to Least</caption>
             <tr>
                 <th>COMPANY NUMBER</th>
-                <th>COMPANY NAME | LINK</th>
-                <th>AVAILABLE JOBS</th>
+                <th>COMPANY NAME LINK</th>
+                <th>AVAILABLE POSITIONS</th>
             </tr>
             <% for( let index = 0; index < companyFreq.length; index++ ) { %>
                 <tr>

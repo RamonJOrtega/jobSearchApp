@@ -1,6 +1,6 @@
 body {
     margin: 20px;
-    background-image: linear-gradient(black, #333, black);
+    background-image: linear-gradient(black, #333, black, #333, black);
     color: whitesmoke;
 }
 
