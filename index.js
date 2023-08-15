@@ -19,7 +19,6 @@ app.use(expressLayouts);
 app.set('layout', './layouts/full-width');
 app.set('view engine', 'ejs');
 
-const port = 8001;
 const jobURL = 'https://4dayweek.io/api';
 
 app.get('/', async (request, response) => {
@@ -56,28 +55,7 @@ app.get('/company/:company', async (request, response) => {
     });
 }); 
 
-app.listen(port, () => {console.log(`confidently listening to port ${port}`)});
+app.listen(process.env.PORT || 3000, () => {console.log('server confidently listening')});
 
-function convertEjsToHtml(ejsFilePath, data, outputHtmlFilePath) {
-  // Read the EJS file
-  fs.readFile(ejsFilePath, 'utf8', (err, ejsTemplate) => {
-    if (err) {
-      console.error(`Error reading EJS file: ${err}`);
-      return;
-    }
-
-    // Render the EJS template with the provided data
-    const renderedHtml = ejs.render(ejsTemplate, data);
-
-    // Write the rendered HTML to the output file
-    fs.writeFile(outputHtmlFilePath, renderedHtml, 'utf8', (err) => {
-      if (err) {
-        console.error(`Error writing HTML file: ${err}`);
-        return;
-      }
-      console.log(`HTML file "${outputHtmlFilePath}" has been created.`);
-    });
-  });
-}
 
 module.exports = app
