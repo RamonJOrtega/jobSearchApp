@@ -38,6 +38,11 @@ table, th, td {
     text-align: center;
 }
 
+caption {
+    text-align: left;
+    margin-bottom: 1em;
+}
+
 td > a, h2 > span {
     text-decoration: none;
     background: linear-gradient(80deg,pink, rgb(247, 131, 247));
