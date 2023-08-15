@@ -37,7 +37,6 @@
         ]);
         } 
     }
-    console.log(jobArray);
     return jobArray;
 }
 
