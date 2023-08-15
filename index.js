@@ -1,5 +1,3 @@
-
-
 const {
     getFirstColFrmTwoColArray,
     listCompanies,
@@ -56,6 +54,5 @@ app.get('/company/:company', async (request, response) => {
 }); 
 
 app.listen(process.env.PORT || 3000, () => {console.log('server confidently listening')});
-
 
 module.exports = app
