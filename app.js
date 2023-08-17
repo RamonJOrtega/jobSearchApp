@@ -18,7 +18,9 @@ app.use(expressLayouts);
 app.set('layout', 'layouts/full-width');
 app.set('view engine', 'ejs');
 
+const port = process.env.PORT || 3000;
 const jobURL = 'https://4dayweek.io/api';
+
 
 app.get('/', async (request, response) => {
     const apiJobResp = await axiosGet(jobURL);
@@ -54,6 +56,6 @@ app.get('/company/:company', async (request, response) => {
     });
 }); 
 
-app.listen(process.env.PORT || 3000, () => {console.log('server confidently listening')});
+app.listen(port, () => {console.log(`server confidently listening to ${port}`)});
 
 module.exports = app
