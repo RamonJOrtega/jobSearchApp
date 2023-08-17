@@ -4,7 +4,7 @@ body {
     color: whitesmoke;
 }
 
-.centerContent {
+main {
     max-width: 1440px;
     margin: auto;
 }
@@ -24,7 +24,7 @@ footer {
 table, th, td {
     table-layout: fixed;
     margin:5px;
-    width: 100%;
+    width: 100%; 
     margin: auto;
     height: 20px;
     max-height: 20px;
