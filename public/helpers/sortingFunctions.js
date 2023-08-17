@@ -24,11 +24,20 @@
     return freqArray.sort((a,b) => b[1]-a[1]);
 }
 
+const findAllJobs = (jobObject) => {
+    let jobArray = [];
+    for (let i = 0; i < jobObject.length; i++) {
+        jobArray.push([
+            jobObject[i].title
+        ])
+    }
+}
+
  const findCompanyJobs = (company, jobObject) => {
     let jobArray = [];
     for (let i=0; i < jobObject.length; i++) {
         if (company == jobObject[i].company_name) {
-        jobArray.push([
+            jobArray.push([
             jobObject[i].title, 
             jobObject[i].company.country,
             jobObject[i].company.remote_level,
@@ -46,4 +55,5 @@ module.exports = {
     companyFrequency,
     sortFreqLargeToSmall,
     findCompanyJobs,
+    findAllJobs
 };

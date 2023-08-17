@@ -21,6 +21,10 @@
                         <option id="res3" name="res3" placeholder="result3" ></option>
                     </datalist>
 
+                    <input id="jbsrch" placeholder="search job title"
+                    onkeyup="suggest(getElementById('jbsrch').value.toString().toLowerCase(), '<%= jobList %>', event)">
+                    
+
                 </div>
             </main> 
         </div>

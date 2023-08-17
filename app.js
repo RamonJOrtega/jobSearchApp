@@ -4,6 +4,7 @@ const {
     companyFrequency,
     sortFreqLargeToSmall,
     findCompanyJobs,
+    findAllJobs
 } = require('./public/helpers/sortingFunctions.js');
 
 const { axiosGet } = require('./public/helpers/axiosHelpers.js');
@@ -28,13 +29,15 @@ app.get('/', async (request, response) => {
     const uniqueCompanyArray = [... new Set(verboseCompanyArray)];
     const sortedUniqueCompanyArray = sortFreqLargeToSmall(companyFrequency(verboseCompanyArray));
     const companyList = getFirstColFrmTwoColArray(sortedUniqueCompanyArray);
-    
+    const jobList = findAllJobs(apiJobResp);
+
     response.render('jobsHome', {
         title: '4-Day Work Week Careers',
         jobCount: apiJobResp.jobs.length,
         companyCount: uniqueCompanyArray.length,
         companyFreq: sortedUniqueCompanyArray,
-        companyList: companyList
+        companyList: companyList,
+        jobList: jobList
     });
     
 });    
@@ -47,12 +50,14 @@ app.get('/company/:company', async (request, response) => {
     const companyList = getFirstColFrmTwoColArray(sortedUniqueCompanyArray);
     const company = (request.params.company);
     const jobsArray = findCompanyJobs(company,apiJobResp.jobs);
+    const jobList = findAllJobs(apiJobResp);
    
     response.render('company', {
         title: company,
         jobs: jobsArray,
         companyFreq: sortedUniqueCompanyArray,
-        companyList: companyList
+        companyList: companyList,
+        jobList: jobList
     });
 }); 
 
