@@ -11,7 +11,7 @@
             <main class="topnav"> 
                 <div class="flex-container-column">
 
-                    <input list="results" id="srch" placeholder="search company name"
+                    <input list="results" id="srch" placeholder="search by company name"
                     onkeyup="suggest(getElementById('srch').value.toString().toLowerCase(), '<%= companyList %>' , event)">
 
                     <datalist id="results" >
@@ -21,7 +21,7 @@
                         <option id="res3" name="res3" placeholder="result3" ></option>
                     </datalist>
 
-                    <input id="jbsrch" placeholder="search job title"
+                    <input id="jbsrch" placeholder="search by job title"
                     onkeyup="suggest(getElementById('jbsrch').value.toString().toLowerCase(), '<%= jobList %>', event)">
                     
 
