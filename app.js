@@ -29,8 +29,8 @@ app.get('/', async (request, response) => {
     const uniqueCompanyArray = [... new Set(verboseCompanyArray)];
     const sortedUniqueCompanyArray = sortFreqLargeToSmall(companyFrequency(verboseCompanyArray));
     const companyList = getFirstColFrmTwoColArray(sortedUniqueCompanyArray);
-    const jobList = findAllJobs(apiJobResp);
-
+    const jobList = findAllJobs(apiJobResp.jobs);
+    console.log(jobList)
     response.render('jobsHome', {
         title: '4-Day Work Week Careers',
         jobCount: apiJobResp.jobs.length,
@@ -49,12 +49,12 @@ app.get('/company/:company', async (request, response) => {
     const sortedUniqueCompanyArray = sortFreqLargeToSmall(companyFrequency(verboseCompanyArray));
     const companyList = getFirstColFrmTwoColArray(sortedUniqueCompanyArray);
     const company = (request.params.company);
-    const jobsArray = findCompanyJobs(company,apiJobResp.jobs);
-    const jobList = findAllJobs(apiJobResp);
+    const companyJobsArray = findCompanyJobs(company,apiJobResp.jobs);
+    const jobList = findAllJobs(apiJobResp.jobs);
    
     response.render('company', {
         title: company,
-        jobs: jobsArray,
+        jobs: companyJobsArray,
         companyFreq: sortedUniqueCompanyArray,
         companyList: companyList,
         jobList: jobList

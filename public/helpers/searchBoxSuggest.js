@@ -1,31 +1,35 @@
-const suggest = (searchString, companyCharactersArray, e) => {
+const suggest = (searchString, charArray, e) => {
+
+    console.log('hello');
     
-    let company = [];
-    let companyList = [];
-    for (let i = 0; i < companyCharactersArray.length; i ++) {
-        if (companyCharactersArray[i] !== ','){
-            company.push(companyCharactersArray[i])
+    let category = [];
+    let categoryList = [];
+    for (let i = 0; i < charArray.length; i ++) {
+        if (charArray[i] !== ','){
+            category.push(charArray[i])
         } else {
-            company = company.join('');
-            companyList.push(company);
-            company = [];
+            category = category.join('');
+            categoryList.push(category);
+            category = [];
         }     
     }
     ///////////////////////////////////////////////////////////////////////////////////////// 
-    let companiesStartingWithArray = [];   
-    for (let i = 0; i < companyList.length; i ++) {   
-        const companyName = companyList[i];
-        const companyNameLowerCase = companyName.toLowerCase();
-        if (companyNameLowerCase.startsWith(searchString) && (searchString.length >0 )) {
-            companiesStartingWithArray.push(companyName); 
+    let catagoriesStartingWithArray = [];   
+    for (let i = 0; i < categoryList.length; i ++) {   
+        const categoryName = categoryList[i];
+        const categoryNameLowerCase = categoryName.toLowerCase();
+        if (categoryNameLowerCase.startsWith(searchString) && (searchString.length >0 )) {
+            catagoriesStartingWithArray.push(categoryName); 
         } 
     }
     /////////////////////////////////////////////////////////////////////////////////////////
     const resultMax = 4;
     for (let i = 0; i < resultMax; i++) {
-        if (companiesStartingWithArray[i]) {
-            var resultBox = document.getElementById(`res${i}`);
-            resultBox.value = companiesStartingWithArray[i]; 
+        if (catagoriesStartingWithArray[i]) {
+            // var resultBox = document.getElementById(`res${i}`);
+            // resultBox.value = catagoriesStartingWithArray[i]; 
+            var jobBox = document.getElementById(`job${i}`);
+            jobBox.value = catagoriesStartingWithArray[i]; 
         }
     }
     /////////////////////////////////////////////////////////////////////////////////////////
@@ -37,10 +41,10 @@ const suggest = (searchString, companyCharactersArray, e) => {
     } 
     /////////////////////////////////////////////////////////////////////////////////////////
     if (keynum == 13){
-        for(let i = 0 ; i < companiesStartingWithArray.length; i++) {
-            if (searchString.toLowerCase() == companiesStartingWithArray[i].toLowerCase()) {
-                const page = companiesStartingWithArray[0];
-                window.location.replace(`/company/${page}`);
+        for(let i = 0 ; i < catagoriesStartingWithArray.length; i++) {
+            if (searchString.toLowerCase() == catagoriesStartingWithArray[i].toLowerCase()) {
+                const page = catagoriesStartingWithArray[0];
+                window.location.replace(`/category/${page}`);
             }
         }
     }

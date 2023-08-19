@@ -10,20 +10,31 @@
 
             <main class="topnav"> 
                 <div class="flex-container-column">
+<!-- 
+               
+                    <div>
+                        <input list="results" id="srch" placeholder="search by company name"
+                        onkeyup="suggest(getElementById('srch').value.toString().toLowerCase(), '<%= companyList %>' , event)">
+    
+                        <datalist id="results" >
+                            <option id="res0" name="res0" placeholder="result0" ></option>
+                            <option id="res1" name="res1" placeholder="result1" ></option>                
+                            <option id="res2" name="res2" placeholder="result2" ></option>            
+                            <option id="res3" name="res3" placeholder="result3" ></option>
+                        </datalist>
+                    </div> -->
 
-                    <input list="results" id="srch" placeholder="search by company name"
-                    onkeyup="suggest(getElementById('srch').value.toString().toLowerCase(), '<%= companyList %>' , event)">
-
-                    <datalist id="results" >
-                        <option id="res0" name="res0" placeholder="result0" ></option>
-                        <option id="res1" name="res1" placeholder="result1" ></option>                
-                        <option id="res2" name="res2" placeholder="result2" ></option>            
-                        <option id="res3" name="res3" placeholder="result3" ></option>
+                <div>
+                    <input list="jobResults" id="jbsrch" placeholder="search by job name"
+                    onkeyup="suggest(getElementById('jbsrch').value.toString().toLowerCase(), '<%= jobList%>' , event)">
+                
+                    <datalist id="jobResults" >
+                        <option id="job0" name="job0" placeholder="job0" ></option>
+                        <option id="job1" name="job1" placeholder="job1" ></option>                
+                        <option id="job2" name="job2" placeholder="job2" ></option>            
+                        <option id="job3" name="job3" placeholder="job3" ></option>
                     </datalist>
-
-                    <input id="jbsrch" placeholder="search by job title"
-                    onkeyup="suggest(getElementById('jbsrch').value.toString().toLowerCase(), '<%= jobList %>', event)">
-                    
+                </div>
 
                 </div>
             </main> 

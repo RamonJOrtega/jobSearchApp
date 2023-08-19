@@ -26,11 +26,13 @@
 
 const findAllJobs = (jobObject) => {
     let jobArray = [];
-    for (let i = 0; i < jobObject.length; i++) {
-        jobArray.push([
+    console.log(jobObject.length)
+    for (let i=0; i < jobObject.length; i++) {
+            jobArray.push([
             jobObject[i].title
-        ])
+        ]);
     }
+    return jobArray;
 }
 
  const findCompanyJobs = (company, jobObject) => {
