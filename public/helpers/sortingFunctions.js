@@ -28,9 +28,9 @@ const findAllJobs = (jobObject) => {
     let jobArray = [];
     console.log(jobObject.length)
     for (let i=0; i < jobObject.length; i++) {
-            jobArray.push([
+            jobArray.push(
             jobObject[i].title
-        ]);
+        );
     }
     return jobArray;
 }

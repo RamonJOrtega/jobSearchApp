@@ -1,6 +1,6 @@
-const suggest = (searchString, charArray, e) => {
+const suggest = (jobOrCompanyFlag,searchString, charArray, e) => {
 
-    console.log('hello');
+    alert('hello')
     
     let category = [];
     let categoryList = [];
@@ -25,9 +25,11 @@ const suggest = (searchString, charArray, e) => {
     /////////////////////////////////////////////////////////////////////////////////////////
     const resultMax = 4;
     for (let i = 0; i < resultMax; i++) {
-        if (catagoriesStartingWithArray[i]) {
-            // var resultBox = document.getElementById(`res${i}`);
-            // resultBox.value = catagoriesStartingWithArray[i]; 
+        if (jobOrCompanyFlag === 'company' && catagoriesStartingWithArray[i]) {
+            var jobBox = document.getElementById(`job${i}`);
+            jobBox.value = catagoriesStartingWithArray[i]; 
+        }
+        if (jobOrCompanyFlag === 'job' && catagoriesStartingWithArray[i]) { 
             var jobBox = document.getElementById(`job${i}`);
             jobBox.value = catagoriesStartingWithArray[i]; 
         }

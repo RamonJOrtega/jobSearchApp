@@ -30,7 +30,6 @@ app.get('/', async (request, response) => {
     const sortedUniqueCompanyArray = sortFreqLargeToSmall(companyFrequency(verboseCompanyArray));
     const companyList = getFirstColFrmTwoColArray(sortedUniqueCompanyArray);
     const jobList = findAllJobs(apiJobResp.jobs);
-    console.log(jobList)
     response.render('jobsHome', {
         title: '4-Day Work Week Careers',
         jobCount: apiJobResp.jobs.length,
