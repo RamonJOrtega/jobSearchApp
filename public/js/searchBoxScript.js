@@ -43,10 +43,12 @@ const suggest = (jobOrCompanyFlag,searchString, charactersArray, e) => {
     // If keycode is `ENTER` then go to page
     if (keynum == 13){
         for(let i = 0 ; i < categoriesStartingWithArray.length; i++) {
+            //Company suggestions need to exactly match what is in the list
             if (jobOrCompanyFlag === 'company' && searchString.toLowerCase() == categoriesStartingWithArray[i].toLowerCase()) {
                 const page = categoriesStartingWithArray[0];
                 window.location.replace(`/company/${page}`);
             }
+            //Job suggestions don't need to exactly 
             if (jobOrCompanyFlag === 'job') {
                 const page = searchString;
                 window.location.replace(`/jobs/${page}`);
