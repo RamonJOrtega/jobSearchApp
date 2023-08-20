@@ -40,12 +40,16 @@ const suggest = (jobOrCompanyFlag,searchString, charactersArray, e) => {
     } else if (e.which) {
         keynum = e.which;
     } 
-    //Convert the search string to lower case to compare strings and categores. If keycode is `ENTER` then go to page/
+    // If keycode is `ENTER` then go to page
     if (keynum == 13){
         for(let i = 0 ; i < categoriesStartingWithArray.length; i++) {
-            if (searchString.toLowerCase() == categoriesStartingWithArray[i].toLowerCase()) {
+            if (jobOrCompanyFlag === 'company' && searchString.toLowerCase() == categoriesStartingWithArray[i].toLowerCase()) {
                 const page = categoriesStartingWithArray[0];
                 window.location.replace(`/company/${page}`);
+            }
+            if (jobOrCompanyFlag === 'job') {
+                const page = searchString;
+                window.location.replace(`/jobs/${page}`);
             }
         }
     }

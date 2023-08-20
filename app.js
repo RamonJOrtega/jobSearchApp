@@ -60,6 +60,25 @@ app.get('/company/:company', async (request, response) => {
     });
 }); 
 
+app.get('/jobs/:jobsKeywords', async (request, response) => {
+    const apiJobResp = await axiosGet(jobURL);
+    const verboseCompanyArray = listCompanies(apiJobResp.jobs);
+    const uniqueCompanyArray = [... new Set(verboseCompanyArray)];
+    const sortedUniqueCompanyArray = sortFreqLargeToSmall(companyFrequency(verboseCompanyArray));
+    const companyList = getFirstColFrmTwoColArray(sortedUniqueCompanyArray);
+    const company = (request.params.company);
+    const companyJobsArray = findCompanyJobs(company,apiJobResp.jobs);
+    const jobList = findAllJobs(apiJobResp.jobs);
+   
+    response.render('jobsKeywords', {
+        title: company,
+        jobs: companyJobsArray,
+        companyFreq: sortedUniqueCompanyArray,
+        companyList: companyList,
+        jobList: jobList
+    });
+}); 
+
 app.listen(port, () => {console.log(`server confidently listening to ${port}`)});
 
 module.exports = app
