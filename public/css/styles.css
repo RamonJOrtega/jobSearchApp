@@ -13,12 +13,12 @@ section {
     background: #333;
 }
 
-section > div{
+section > div {
     background-image: linear-gradient(black, #333);
 }
+
 table {
     margin-top: 0;
-
     background-image: linear-gradient(#333, black);
 }
 
