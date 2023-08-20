@@ -13,24 +13,24 @@ const suggest = (jobOrCompanyFlag,searchString, charactersArray, e) => {
         }     
     }
     // Create an array of jobs or company names that start with the search string///////////
-    let categoriesStartingWithArray = [];   
+    let categoriesContainingSearchArray = [];   
     for (let i = 0; i < categoryList.length; i ++) {   
         const categoryName = categoryList[i];
         const categoryNameLowerCase = categoryName.toLowerCase();
-        if (categoryNameLowerCase.startsWith(searchString) && (searchString.length >0 )) {
-            categoriesStartingWithArray.push(categoryName); 
+        if (categoryNameLowerCase.includes(searchString) && (searchString.length >0 )) {
+            categoriesContainingSearchArray.push(categoryName); 
         } 
     }
     // Populate the data list result box by getting the id of each data list option/////////
     const resultMax = 4;
     for (let i = 0; i < resultMax; i++) {
-        if (jobOrCompanyFlag === 'company' &&categoriesStartingWithArray[i]) {
+        if (jobOrCompanyFlag === 'company' &&categoriesContainingSearchArray[i]) {
             var resultBox = document.getElementById(`res${i}`);
-            resultBox.value = categoriesStartingWithArray[i]; 
+            resultBox.value = categoriesContainingSearchArray[i]; 
         }
-        if (jobOrCompanyFlag === 'job' && categoriesStartingWithArray[i]) { 
+        if (jobOrCompanyFlag === 'job' && categoriesContainingSearchArray[i]) { 
             var jobBox = document.getElementById(`job${i}`);
-            jobBox.value = categoriesStartingWithArray[i]; 
+            jobBox.value = categoriesContainingSearchArray[i]; 
         }
     }
     //Get the keycode of each keystroke as the searchboxes are populated by the user//////////
@@ -42,10 +42,10 @@ const suggest = (jobOrCompanyFlag,searchString, charactersArray, e) => {
     } 
     // If keycode is `ENTER` then go to page
     if (keynum == 13){
-        for(let i = 0 ; i < categoriesStartingWithArray.length; i++) {
+        for(let i = 0 ; i < categoriesContainingSearchArray.length; i++) {
             //Company suggestions need to exactly match what is in the list
-            if (jobOrCompanyFlag === 'company' && searchString.toLowerCase() == categoriesStartingWithArray[i].toLowerCase()) {
-                const page = categoriesStartingWithArray[0];
+            if (jobOrCompanyFlag === 'company' && searchString.toLowerCase() == categoriesContainingSearchArray[i].toLowerCase()) {
+                const page = categoriesContainingSearchArray[0];
                 window.location.replace(`/company/${page}`);
             }
             //Job suggestions don't need to exactly 

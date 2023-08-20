@@ -1,23 +1,24 @@
 <section>
     <div>
-        <h1> <%- title %> <image src = "<%- jobs[0][3] %> " height="25px"></image> </h1>
-        <h2> Current Open Positions: <span> <%- jobs.length %></span>  </h2>
+        <h1> <A:tel></A:tel>ll Jobs Containing:  <span><%- searchString %></span>  </h1>
+        <h2> Current Open Positions: <span> <%- jobsAndAttributes.length %></span>  </h2>
         <p>Table of openings</p>
     </div>
     <table>
-        
         <tr>
-            <th>JOB NUMBER</th>
-            <th>JOB TITLE</th>
-            <th>JOB CITY</th>
-            <th>JOB COUNTRY</th>
+            <th>#</th>
+            <th>Title</th>
+            <th>Company</th>
+            <th>City</th>
+            <th>Country</th>
         </tr>
-        <% for( let index = 0; index < jobs.length; index++ ) { %>
+        <% for( let index = 0; index < jobsAndAttributes.length; index++ ) { %>
             <tr>
                 <td> <%- index +1 %> </td>
-                <td> <a href="<%- jobs[index][4] %> "> <%- jobs[index][0] %> </a> </td>
-                <td> <%- jobs[index][1] %> </td>
-                <td> <%- jobs[index][2] %> </td>
+                <td> <a href="<%- jobsAndAttributes[index][4] %> "> <%- jobsAndAttributes[index][0] %> </a> </td>
+                <td> <%- jobsAndAttributes[index][5] %> <image src = "<%- jobsAndAttributes[0][3] %> " height="25px"></image> </td>
+                <td> <%- jobsAndAttributes[index][1] %> </td>
+                <td> <%- jobsAndAttributes[index][2] %> </td>
         <% } %> 
             </tr>
     </table>

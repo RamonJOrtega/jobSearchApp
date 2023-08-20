@@ -35,6 +35,24 @@ const findAllJobs = (jobObject) => {
     return jobArray;
 }
 
+const findAllJobsAndAttributes = (jobsKeywords, jobObject) => {
+    let jobArray = [];
+    for (let i=0; i < jobObject.length; i++) {
+        if (jobObject[i].title.toLowerCase().includes(jobsKeywords.toLowerCase())) {
+            jobArray.push([
+            jobObject[i].title, 
+            jobObject[i].company.country,
+            jobObject[i].company.remote_level,
+            jobObject[i].company.logo_url,
+            jobObject[i].url,
+            jobObject[i].company_name
+        ]);
+        } 
+    }
+    return jobArray;
+}
+
+
  const findCompanyJobs = (company, jobObject) => {
     let jobArray = [];
     for (let i=0; i < jobObject.length; i++) {
@@ -57,5 +75,6 @@ module.exports = {
     companyFrequency,
     sortFreqLargeToSmall,
     findCompanyJobs,
-    findAllJobs
+    findAllJobs,
+    findAllJobsAndAttributes
 };

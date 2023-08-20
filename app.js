@@ -4,7 +4,8 @@ const {
     companyFrequency,
     sortFreqLargeToSmall,
     findCompanyJobs,
-    findAllJobs
+    findAllJobs,
+    findAllJobsAndAttributes
 } = require('./public/helpers/sortingFunctions.js');
 
 const { axiosGet } = require('./public/helpers/axiosHelpers.js');
@@ -64,19 +65,22 @@ app.get('/jobs/:jobsKeywords', async (request, response) => {
     const verboseCompanyArray = listCompanies(apiJobResp.jobs);
     const sortedUniqueCompanyArray = sortFreqLargeToSmall(companyFrequency(verboseCompanyArray));
     const companyList = getFirstColFrmTwoColArray(sortedUniqueCompanyArray);
-    const company = (request.params.company);
-    const companyJobsArray = findCompanyJobs(company,apiJobResp.jobs);
+    // const company = (request.params.company);
+    // const companyJobsArray = findCompanyJobs(company,apiJobResp.jobs);
+    const searchString = request.params.jobsKeywords;
     const jobList = findAllJobs(apiJobResp.jobs);
+    const jobListAndAttributes = findAllJobsAndAttributes(searchString, apiJobResp.jobs);
+    console.log(jobListAndAttributes)
    
     response.render('jobsKeywords', {
-        title: company,
-        jobs: companyJobsArray,
-        companyFreq: sortedUniqueCompanyArray,
-        companyList: companyList,
-        jobList: jobList
+        title: 'Jobs by Keywords',
+        searchString: searchString,
+        jobList: jobList,
+        companyList:companyList,
+        jobsAndAttributes: jobListAndAttributes
     });
 }); 
 
-app.listen(port, () => {console.log(`server confidently listening to ${port}`)});
+app.listen(port, () => {console.log(`server confidently listening to port ${port}`)});
 
 module.exports = app

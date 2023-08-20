@@ -34,7 +34,7 @@ table, th, td {
 }
 
 
-td > a, h2 > span {
+td > a, h1 > span, h2 > span {
     text-decoration: none;
     background: linear-gradient(80deg,pink, rgb(247, 131, 247));
     -webkit-background-clip: text;
