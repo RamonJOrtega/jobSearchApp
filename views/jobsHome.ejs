@@ -1,24 +1,22 @@
-<body>
-    <section>
-        <div>
-            <h1> <%- title %> </h1>
-            <h2> Open Positions: <span> <%- jobCount %></span> </h2>
-            <h2> Companies Hiring: <span><%- companyCount %> </span></h2>
-            <p>Table of openings per company sorted most to least</p>
-        </div>
-        <table>
+<section>
+    <div>
+        <h1> <%- title %> </h1>
+        <h2> Open Positions: <span> <%- jobCount %></span> </h2>
+        <h2> Companies Hiring: <span><%- companyCount %> </span></h2>
+        <p>Table of openings per company sorted most to least</p>
+    </div>
+    <table>
+        <tr>
+            <th>COMPANY NUMBER</th>
+            <th>COMPANY NAME LINK</th>
+            <th>AVAILABLE POSITIONS</th>
+        </tr>
+        <% for( let index = 0; index < companyFreq.length; index++ ) { %>
             <tr>
-                <th>COMPANY NUMBER</th>
-                <th>COMPANY NAME LINK</th>
-                <th>AVAILABLE POSITIONS</th>
+                <td> <%- index +1 %> </td>
+                <td> <a class="company" href="/company/<%- companyFreq[index][0] %>"> <%- companyFreq[index][0] %> </a> </td> 
+                <td> <%- companyFreq[index][1] %> </td>
+        <% } %> 
             </tr>
-            <% for( let index = 0; index < companyFreq.length; index++ ) { %>
-                <tr>
-                    <td> <%- index +1 %> </td>
-                    <td> <a class="company" href="/company/<%- companyFreq[index][0] %>"> <%- companyFreq[index][0] %> </a> </td> 
-                    <td> <%- companyFreq[index][1] %> </td>
-            <% } %> 
-                </tr>
-        </table>
-    </section>
-</body>
+    </table>
+</section>
