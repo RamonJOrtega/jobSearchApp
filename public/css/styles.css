@@ -65,6 +65,28 @@ footer {
     display: flex;
     justify-content: space-between;   
 }
+footer > div {
+    padding: 15px;
+    text-align: center;
+  }
+
+.item1 {grid-area: heading;}
+.item2 {grid-area: posName;}
+.item3 {grid-area: posNum; text-align: right;} 
+.item4 {grid-area: comName;}
+.item5 {grid-area: comNum; text-align: right;}
+.item6 {grid-area: desc;}
+
+.homeGrid {
+    max-width: 17.5rem;
+    display: grid;
+    column-gap: .25rem;
+    grid-template-areas: 
+    'heading heading'
+    'posName posNum'
+    'comName comNum'
+    'desc desc';
+}
 
 .company {
     font: italic;
@@ -88,7 +110,3 @@ footer {
     background-color: #04AA6D;
   }
 
-  footer > div {
-    padding: 15px;
-    text-align: center;
-  }
