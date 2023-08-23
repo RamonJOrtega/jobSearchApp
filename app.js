@@ -70,7 +70,6 @@ app.get('/jobs/:jobsKeywords', async (request, response) => {
     const searchString = request.params.jobsKeywords;
     const jobList = findAllJobs(apiJobResp.jobs);
     const jobListAndAttributes = findAllJobsAndAttributes(searchString, apiJobResp.jobs);
-    console.log(jobListAndAttributes)
    
     response.render('jobsKeywords', {
         title: 'Jobs by Keywords',
