@@ -76,6 +76,9 @@ footer > div {
 .item4 {grid-area: comName;}
 .item5 {grid-area: comNum; text-align: right;}
 .item6 {grid-area: desc;}
+.item7 {grid-area: topLeft}
+.item8 {grid-area: topRight; text-align: right;}
+
 
 .homeGrid {
     max-width: 17.5rem;
@@ -85,6 +88,16 @@ footer > div {
     'heading heading'
     'posName posNum'
     'comName comNum'
+    'desc desc';
+}
+
+.subPageGrid {
+    max-width: 17.5rem;
+    display: grid;
+    column-gap: .25rem;
+    grid-template-areas: 
+    'topLeft topRight'
+    'posName posNum'
     'desc desc';
 }
 
