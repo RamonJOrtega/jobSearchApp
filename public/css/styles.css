@@ -39,9 +39,7 @@ table, th, td {
     margin-bottom: 1em;
 }
 
-colgroup :first-child {
-    width: 3rem;
-}
+
 
 
 td > a, h1 > span, h2 > span {
