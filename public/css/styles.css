@@ -39,8 +39,8 @@ table, th, td {
     margin-bottom: 1em;
 }
 
-col :nth-child(0) {
-    width: 2rem;
+colgroup :first-child {
+    min-width: 2rem;
 }
 
 
