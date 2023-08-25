@@ -13,6 +13,7 @@
                 <col span="1">
                 <col span="1">
                 <col span="1">
+                <col span="1" width="25px">
                 <col span="1">
                 <col span="1">
             </colgroup>  
@@ -20,6 +21,7 @@
                 <th>#</th>
                 <th>Title</th>
                 <th>Company</th>
+                <th></th>
                 <th>City</th>
                 <th>Country</th>
             </tr>
@@ -27,7 +29,8 @@
             <tr>
                 <td> <%- index +1 %> </td>
                 <td> <a href="<%- jobsAndAttributes[index][4] %> "> <%- jobsAndAttributes[index][0] %> </a> </td>
-                <td> <%- jobsAndAttributes[index][5] %> <image src = "<%- jobsAndAttributes[index][3] %> " height="25px"></image> </td>
+                <td> <%- jobsAndAttributes[index][5] %> </td>
+                <td > <image src = "<%- jobsAndAttributes[index][3] %> " height="25px"></image> </td>
                 <td> <%- jobsAndAttributes[index][1] %> </td>
                 <td> <%- jobsAndAttributes[index][2] %> </td>
         <% } %> 
