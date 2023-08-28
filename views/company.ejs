@@ -13,20 +13,17 @@
                 <col span="1">
                 <col span="1">
                 <col span="1">
-                <col span="1">
             </colgroup>  
             <tr>
                 <th>#</th>
                 <th>Title</th>
-                <th>City</th>
-                <th>Country</th>
+                <th>City/Country</th>
             </tr>
             <% for( let index = 0; index < jobs.length; index++ ) { %>
             <tr>
                 <td> <%- index +1 %> </td>
                 <td> <a href="<%- jobs[index][4] %> "> <%- jobs[index][0] %> </a> </td>
-                <td> <%- jobs[index][1] %> </td>
-                <td> <%- jobs[index][2] %> </td>
+                <td> <%- jobs[index][1] %>  <%- jobs[index][2] %></td>
         <% } %> 
             </tr>
             </tbody>
