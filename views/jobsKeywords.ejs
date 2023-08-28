@@ -14,22 +14,19 @@
                 <col span="1">
                 <col span="1">
                 <col span="1">
-                <col span="1">
             </colgroup>  
             <tr>
-                <th>#</th>
+                <th>Logo</th>
                 <th>Title</th>
                 <th>Company</th>
-                <th>City</th>
-                <th>Country</th>
+                <th>City/Country</th>
             </tr>
         <% for( let index = 0; index < jobsAndAttributes.length; index++ ) { %>
             <tr>
-                <td> <%- index +1 %> </td>
+                <td> <image src = "<%- jobsAndAttributes[index][3] %> " height="25px" > </image> </td>
                 <td> <a href="<%- jobsAndAttributes[index][4] %> "> <%- jobsAndAttributes[index][0] %> </a> </td>
-                <td style= "text-align: left;">  <image src = "<%- jobsAndAttributes[index][3] %> " height="25px" ></image><%- jobsAndAttributes[index][5] %> </td>
-                <td> <%- jobsAndAttributes[index][1] %> </td>
-                <td> <%- jobsAndAttributes[index][2] %> </td>
+                <td> <%- jobsAndAttributes[index][5] %> </td>
+                <td> <%- jobsAndAttributes[index][1] %> <%- jobsAndAttributes[index][2] %> </td>
         <% } %> 
             </tr>
         </tbody>
