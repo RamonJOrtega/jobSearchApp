@@ -24,9 +24,8 @@ app.set('view engine', 'ejs');
 const port = process.env.PORT || 3000;
 const jobURL = 'https://4dayweek.io/api';
 
-
 app.get('/', async (request, response) => {
-    const apiJobResp = await axiosGet(jobURL);
+    const apiJobResp = await axiosGet(jobURL);    
     const verboseCompanyArray = listCompanies(apiJobResp.jobs);
     const uniqueCompanyArray = [... new Set(verboseCompanyArray)];
     const sortedUniqueCompanyArray = sortFreqLargeToSmall(companyFrequency(verboseCompanyArray));
